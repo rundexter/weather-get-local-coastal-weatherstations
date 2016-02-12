@@ -1,26 +1,19 @@
-/*
- * Metadata describing the module operation
- */
 {
-    //Required. Inputs the module expects.
     "inputs": [
-        //e.g.
-        /*
         {
-            "id": "from",
-            "title":"From"
+            "id": "zipcode",
+            "title":"Zipcode"
+        }, {
+            "id": "distance",
+            "title": "Distance"
         }
-        */
     ],
-    //Required. Outputs the module emits.
     "outputs": [
-      //e.g.
-      /*
         {
-            "id": "from",
-            "title":"From"
+            "id": "station",
+            "title":"Station"
         }
-      */
     ],
-    "title": "Weather: Get Local Coastal Weatherstations" /* Required.A display name for the module */
+    "icon": "life-ring",
+    "title": "Weather: Get Local Coastal Weatherstations"
 }

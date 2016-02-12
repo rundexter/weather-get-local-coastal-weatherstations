@@ -1,3 +1,6 @@
+var _ = require('lodash')
+    , assert = require('assert')
+;
 module.exports = {
     /**
      * The main entry point for the Dexter module
@@ -6,8 +9,23 @@ module.exports = {
      * @param {AppData} dexter Container for all data used in this workflow.
      */
     run: function(step, dexter) {
-        var results = { foo: 'bar' };
-        //Call this.complete with the module's output.  If there's an error, call this.fail(message) instead.
-        this.complete(results);
+        var data = require('./stations')
+            , zipcode = step.input('zipcode').first()
+            , maxDistance = step.input('distance').first() || 25
+            , matches = []
+            , record
+        ;
+        assert(zipcode, 'A single zipcode is required');
+        record = data[zipcode + ''];
+        if(!record || !record['stations']) {
+            //Probably an inland zipcode, so ignore it
+            return this.complete({});
+        }
+        _.each(record.stations, function(distance, station) {
+            if(distance <= maxDistance) {
+                matches.push({ station: station });
+            }
+        });
+        this.complete(matches);
     }
 };

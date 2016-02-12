@@ -3,17 +3,7 @@ var _ = require('lodash')
     ;
 
 module.exports = _.merge({
-    /*
-     * Some default settings. 
-     *
-     * You can generally leave this as is for general testing purposes.
-     */
-    simulation: true
-    , instance_id: 'local_test_instance'
-    , urls: {
-        home: "http://rundexter.com/"
-    }
-    , instance_state: {
+    instance_state: {
         active_step :  "local_test_step"
     }
     , workflow: {
@@ -33,39 +23,6 @@ module.exports = _.merge({
     , modules: {
         //The test runner will add the proper data here
     }
-    /*
-     * End defaults
-     */
-    , environment: {
-       /*
-        * Any API keys you might need should go in the env.js.
-        * For example:
-        *
-        "parse_app_id": "abc123"
-        , "parse_app_key": "foobar"
-        */
-    }
-    , user: {
-        /*
-         * Your dexter user settings should go in the env.js file and remain uncommitted.  
-         * For example:
-         *
-        profile: {
-            id: 1,
-            api_key: 'apikeytest'
-        }
-         */
-        /*
-         * You should also add your providers to env.js
-         * Example:
-        providers: {
-            github: {
-                access_token: 'abc123',
-                username: 'foo'
-            }
-        }
-         */
-    }
     , data: {
         local_test_step: {
             /*
@@ -73,7 +30,8 @@ module.exports = _.merge({
              */
             input: {
                 //Replace VAR1 with the name of an expected input, and add more inputs as needed.
-                VAR1: 'foo'
+                zipcode: '06850'
+                , distance: 40
             }
         }
     }
