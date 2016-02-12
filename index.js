@@ -23,7 +23,7 @@ module.exports = {
         }
         _.each(record.stations, function(distance, station) {
             if(distance <= maxDistance) {
-                matches.push({ station: station });
+                matches.push({ station: station, distance: distance });
             }
         });
         this.complete(matches);

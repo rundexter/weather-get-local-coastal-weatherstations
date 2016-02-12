@@ -12,6 +12,9 @@
         {
             "id": "station",
             "title":"Station"
+        }, {
+            "id": "distance",
+            "title":"Distance"
         }
     ],
     "icon": "life-ring",
